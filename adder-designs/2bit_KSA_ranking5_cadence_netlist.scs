@@ -1,0 +1,604 @@
+// Generated for: spectre
+// Generated on: Oct 15 11:33:30 2022
+// Design library name: Ranking_Rebuttal
+// Design cell name: adder_2bit_nosplitter5_clocktree
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters IA0=0.5m IA1=0.5m IB0=0.5m IB1=0.5m ICIN=0.5m VCC=2.6m
+
+// Library name: MITLL_SFQ
+// Cell name: jjsh
+// View name: schematic
+subckt jjsh B T
+parameters jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=700n
+    R0 (T B) res_r5 l=jjsh_rl w=jjsh_rw rsh=jjsh_rsh
+    J0 (T B) model_jj ic_v=0 ic_phase=0 mfactor=1 d=jjsh_d
+ends jjsh
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dcsfq_suny1
+// View name: schematic
+subckt dcsfq_suny1 IN OUT VCC
+    I3 (0 net12) jjsh jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (0 net9) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I1 (net10 net14) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I0 (net13 net7) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.4u
+    R0 (VCC net11) res_r5 l=1.75u w=500n rsh=2.0
+    L8 (net12 OUT) inductor l=2.11p
+    L7 (net11 net12) inductor l=1.74p
+    L6 (net13 net9) inductor l=690.00f
+    L5 (net10 net9) inductor l=210.00f
+    L4 (net7 0) inductor l=3.59p
+    L3 (net8 net7) inductor l=1.27p
+    L2 (net10 net11) inductor l=1.14p
+    L1 (net8 net14) inductor l=1.29p
+    L0 (IN net8) inductor l=3.35p
+ends dcsfq_suny1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_125uA_1
+// View name: schematic
+subckt jtl_125uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2.1p
+    L2 (net7 net8) inductor l=2.1p
+    L1 (net6 net7) inductor l=2.1p
+    L0 (IN net6) inductor l=2.1p
+    I2 (GND net8) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.3u
+    I1 (GND net6) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.3u
+    R0 (VCC net7) res_r5 l=3.7u w=500n rsh=2.0
+ends jtl_125uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_125to180uA_1
+// View name: schematic
+subckt jtl_125to180uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=1p
+    L2 (net7 net8) inductor l=700.0f
+    L1 (net6 net7) inductor l=1p
+    L0 (IN net6) inductor l=1p
+    I2 (GND net8) jjsh jjsh_rl=850n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.55u
+    I1 (GND net6) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.3u
+    R0 (VCC net7) res_r5 l=3.05u w=500n rsh=2.0
+ends jtl_125to180uA_1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dff_88uA
+// View name: schematic
+subckt dff_88uA A CLK OUT VCC
+    L4 (net8 OUT) inductor l=2.62p
+    L3 (CLK net13) inductor l=2p
+    L2 (net7 net8) inductor l=25p
+    L0 (A net14) inductor l=2.5p
+    I6 (net8 net13) jjsh jjsh_rl=1.6u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.15u
+    I5 (0 net8) jjsh jjsh_rl=1.6u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.15u
+    I4 (0 net7) jjsh jjsh_rl=1.75u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    I3 (net7 net14) jjsh jjsh_rl=1.75u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    R0 (VCC net7) res_r5 l=10.7u w=500n rsh=2.0
+ends dff_88uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_88uA_1
+// View name: schematic
+subckt jtl_88uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2.1p
+    L2 (net7 net8) inductor l=2.1p
+    L1 (net6 net7) inductor l=2.1p
+    L0 (IN net6) inductor l=2.1p
+    I2 (GND net8) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    I1 (GND net6) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    R0 (VCC net7) res_r5 l=5.25u w=500n rsh=2.0
+ends jtl_88uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: and_88uA
+// View name: schematic
+subckt and_88uA CLK GND IN1 IN2 OUT VCC
+    L8 (net20 OUT) inductor l=1.3p
+    L7 (net15 net26) inductor l=4p
+    L6 (net17 net27) inductor l=4p
+    L5 (net28 CLK) inductor l=2p
+    L4 (CLK net37) inductor l=2p
+    L3 (net11 net15) inductor l=12p
+    L2 (net13 net17) inductor l=12p
+    L1 (IN2 net29) inductor l=2p
+    L0 (IN1 net30) inductor l=2p
+    I16 (GND net20) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.3u
+    I15 (net26 net20) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I14 (net20 net27) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I13 (net15 GND) jjsh jjsh_rl=1.7u jjsh_rw=550n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    I22 (GND net17) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    I11 (net28 net15) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I10 (net17 net37) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I9 (GND net11) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    I8 (GND net13) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    I7 (net11 net29) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    I6 (net13 net30) jjsh jjsh_rl=2.1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    R2 (VCC net20) res_r5 l=11.35u w=500n rsh=2.0
+    R1 (VCC net11) res_r5 l=11u w=500n rsh=2.0
+    R0 (VCC net13) res_r5 l=11u w=500n rsh=2.0
+ends and_88uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: xor2_88uA
+// View name: schematic
+subckt xor2_88uA A B CLK GND OUT VCC
+    L6 (B net26) inductor l=1p
+    L5 (net13 OUT) inductor l=2p
+    L4 (net14 net22) inductor l=2p
+    L3 (net14 net19) inductor l=14p
+    L2 (net12 net14) inductor l=14p
+    L1 (CLK net23) inductor l=1.06p
+    L0 (A net28) inductor l=1p
+    I19 (net22 net13) jjsh jjsh_rl=1.9u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.05u
+    I18 (GND net13) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I17 (net13 net23) jjsh jjsh_rl=1.9u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.05u
+    I16 (net10 net19) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I15 (GND net10) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I14 (net11 net12) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I13 (GND net11) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I12 (net10 net26) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    I11 (net11 net28) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    R2 (VCC net15) res_r5 l=7.5u w=500n rsh=2.0
+    R1 (net15 net19) res_r5 l=4.25u w=500n rsh=2.0
+    R0 (net15 net12) res_r5 l=4.25u w=500n rsh=2.0
+ends xor2_88uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: xor2_66uA
+// View name: schematic
+subckt xor2_66uA A B CLK GND OUT VCC
+    L6 (B net26) inductor l=2p
+    L5 (net13 OUT) inductor l=2p
+    L4 (net14 net22) inductor l=1.5p
+    L3 (net14 net19) inductor l=13.5p
+    L2 (net12 net14) inductor l=13.5p
+    L1 (CLK net23) inductor l=2.12p
+    L0 (A net28) inductor l=2p
+    I19 (net22 net13) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I18 (GND net13) jjsh jjsh_rl=3.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I17 (net13 net23) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I16 (net10 net19) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I15 (GND net10) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I14 (net11 net12) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I13 (GND net11) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I12 (net10 net26) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I11 (net11 net28) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R2 (VCC net15) res_r5 l=11.35u w=500n rsh=2.0
+    R1 (net15 net19) res_r5 l=5.7u w=500n rsh=2.0
+    R0 (net15 net12) res_r5 l=5.7u w=500n rsh=2.0
+ends xor2_66uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: and_66uA
+// View name: schematic
+subckt and_66uA CLK GND IN1 IN2 OUT VCC
+    L8 (net20 OUT) inductor l=1.3p
+    L7 (net15 net26) inductor l=3p
+    L6 (net17 net27) inductor l=3p
+    L5 (net28 CLK) inductor l=2p
+    L4 (CLK net37) inductor l=500.0f
+    L3 (net11 net15) inductor l=13p
+    L2 (net13 net17) inductor l=13p
+    L1 (IN2 net29) inductor l=2p
+    L0 (IN1 net30) inductor l=2p
+    I16 (GND net20) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.1u
+    I15 (net26 net20) jjsh jjsh_rl=2.2u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I14 (net20 net27) jjsh jjsh_rl=2.2u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1u
+    I13 (net15 GND) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I22 (GND net17) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I11 (net28 net15) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I10 (net17 net37) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I9 (GND net11) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=850.0n
+    I8 (GND net13) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=850.0n
+    I7 (net11 net29) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I6 (net13 net30) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    R2 (VCC net20) res_r5 l=13u w=500n rsh=2.0
+    R1 (VCC net11) res_r5 l=14u w=500n rsh=2.0
+    R0 (VCC net13) res_r5 l=14u w=500n rsh=2.0
+ends and_66uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dff_66uA
+// View name: schematic
+subckt dff_66uA A CLK OUT VCC
+    L4 (net8 OUT) inductor l=2.62p
+    L3 (CLK net13) inductor l=2p
+    L2 (net7 net8) inductor l=32p
+    L0 (A net14) inductor l=2.5p
+    I6 (net8 net13) jjsh jjsh_rl=2.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    I5 (0 net8) jjsh jjsh_rl=2.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1u
+    I4 (0 net7) jjsh jjsh_rl=2.45u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=950.0n
+    I3 (net7 net14) jjsh jjsh_rl=2.45u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R0 (VCC net7) res_r5 l=14.3u w=500n rsh=2.0
+ends dff_66uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: or1_66uA
+// View name: schematic
+subckt or1_66uA A B CLK GND OUT VCC
+    L8 (A net023) inductor l=2p
+    L9 (B net022) inductor l=2p
+    L7 (CLK net26) inductor l=2p
+    L6 (CLK net27) inductor l=2p
+    L5 (net20 OUT) inductor l=5p
+    L4 (net22 OUT) inductor l=5p
+    L3 (net15 net19) inductor l=3.78p
+    L2 (net17 net23) inductor l=3.78p
+    L1 (net024 net15) inductor l=25p
+    L0 (net13 net17) inductor l=25p
+    I21 (net15 net26) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I20 (GND net15) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I30 (net024 net022) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I18 (GND net19) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I17 (net19 net20) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I16 (net22 net23) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I15 (net23 GND) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I14 (net27 net17) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I13 (net17 GND) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I29 (net13 net023) jjsh jjsh_rl=3.1u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=850.0n
+    I11 (GND net024) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I10 (GND net13) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R3 (net22 VCC) res_r5 l=17.5u w=500n rsh=2.0
+    R2 (net20 VCC) res_r5 l=17.5u w=500n rsh=2.0
+    R1 (VCC net024) res_r5 l=13.5u w=500n rsh=2.0
+    R0 (VCC net13) res_r5 l=13.5u w=500n rsh=2.0
+ends or1_66uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_66to88uA_1
+// View name: schematic
+subckt jtl_66to88uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=1p
+    L2 (net7 net8) inductor l=700.0f
+    L1 (net6 net7) inductor l=1p
+    L0 (IN net6) inductor l=1p
+    I2 (GND net8) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    I1 (GND net6) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R0 (VCC net7) res_r5 l=6.2u w=500n rsh=2.0
+ends jtl_66to88uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_88to125uA_1
+// View name: schematic
+subckt jtl_88to125uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2p
+    L2 (net7 net8) inductor l=1.4p
+    L1 (net6 net7) inductor l=2p
+    L0 (IN net6) inductor l=2p
+    I2 (GND net8) jjsh jjsh_rl=1.2u jjsh_rw=700n jjsh_rsh=2.0 jjsh_d=1.3u
+    I1 (GND net6) jjsh jjsh_rl=1.05u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    R0 (VCC net7) res_r5 l=4.4u w=500n rsh=2.0
+ends jtl_88to125uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_88to66uA_1
+// View name: schematic
+subckt jtl_88to66uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2.1p
+    L2 (net7 net8) inductor l=2.1p
+    L1 (net6 net7) inductor l=1.48p
+    L0 (IN net6) inductor l=2.1p
+    I2 (GND net8) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I1 (GND net6) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    R0 (VCC net7) res_r5 l=6.2u w=500n rsh=2.0
+ends jtl_88to66uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_66uA_1
+// View name: schematic
+subckt jtl_66uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2.1p
+    L2 (net7 net8) inductor l=2.1p
+    L1 (net6 net7) inductor l=2.1p
+    L0 (IN net6) inductor l=2.1p
+    I2 (GND net8) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I1 (GND net6) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R0 (VCC net7) res_r5 l=7.05u w=500n rsh=2.0
+ends jtl_66uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_250to353uA_1
+// View name: schematic
+subckt jtl_250to353uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=1p
+    L2 (net7 net8) inductor l=700.0f
+    L1 (net6 net7) inductor l=1p
+    L0 (IN net6) inductor l=1p
+    I2 (GND net8) jjsh jjsh_rl=700n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    I1 (GND net6) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    R0 (VCC net7) res_r5 l=1.55u w=500n rsh=2.0
+ends jtl_250to353uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_353to500uA_1
+// View name: schematic
+subckt jtl_353to500uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=1p
+    L2 (net7 net8) inductor l=700.0f
+    L1 (net6 net7) inductor l=1p
+    L0 (IN net6) inductor l=1p
+    I5 (GND net8) jjsh jjsh_rl=700n jjsh_rw=1.2u jjsh_rsh=2.0 jjsh_d=2.55u
+    I1 (GND net6) jjsh jjsh_rl=1.25u jjsh_rw=2.8u jjsh_rsh=2.0 \
+        jjsh_d=2.15u
+    R0 (VCC net7) res_r5 l=1.05u w=700n rsh=2.0
+ends jtl_353to500uA_1
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: jtl_46to66uA_1
+// View name: schematic
+subckt jtl_46to66uA_1 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2p
+    L2 (net7 net8) inductor l=1.4p
+    L1 (net6 net7) inductor l=2p
+    L0 (IN net6) inductor l=2p
+    I2 (GND net8) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I1 (GND net6) jjsh jjsh_rl=2.8u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=800n
+    R0 (VCC net7) res_r5 l=9u w=500n rsh=2.0
+ends jtl_46to66uA_1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: xor2_66uA
+// View name: schematic
+subckt xor2_66uA_schematic A B CLK GND OUT VCC
+    L6 (B net26) inductor l=2p
+    L5 (net13 OUT) inductor l=2p
+    L4 (net14 net22) inductor l=1.5p
+    L3 (net14 net19) inductor l=13.5p
+    L2 (net12 net14) inductor l=13.5p
+    L1 (CLK net23) inductor l=2.12p
+    L0 (A net28) inductor l=2p
+    I19 (net22 net13) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I18 (GND net13) jjsh jjsh_rl=3.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I17 (net13 net23) jjsh jjsh_rl=2.7u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=900n
+    I16 (net10 net19) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I15 (GND net10) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I14 (net11 net12) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I13 (GND net11) jjsh jjsh_rl=3.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=800n
+    I12 (net10 net26) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I11 (net11 net28) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R2 (VCC net15) res_r5 l=11.35u w=500n rsh=2.0
+    R1 (net15 net19) res_r5 l=5.7u w=500n rsh=2.0
+    R0 (net15 net12) res_r5 l=5.7u w=500n rsh=2.0
+ends xor2_66uA_schematic
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_66uA_1
+// View name: schematic
+subckt jtl_66uA_1_schematic GND IN OUT VCC
+    L3 (net8 OUT) inductor l=3.9p
+    L2 (net7 net8) inductor l=3.9p
+    L1 (net6 net7) inductor l=3.9p
+    L0 (IN net6) inductor l=3.9p
+    I2 (GND net8) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I1 (GND net6) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    R0 (VCC net7) res_r5 l=7.05u w=500n rsh=2.0
+ends jtl_66uA_1_schematic
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB2
+// Cell name: delay3_level2_3
+// View name: schematic
+subckt delay3_level2_3 GND IN OUT VCC
+    L3 (net8 OUT) inductor l=2p
+    L2 (net7 net8) inductor l=2p
+    L1 (net6 net7) inductor l=2.85p
+    L0 (IN net6) inductor l=2p
+    I6 (GND net8) jjsh jjsh_rl=2.5u jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=950.0n
+    I1 (GND net6) jjsh jjsh_rl=3.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=800n
+    R0 (VCC net7) res_r5 l=8.5u w=500n rsh=2.0
+ends delay3_level2_3
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: adder_2bit_nosplitter5_clocktree
+// View name: schematic
+I282 (net048 net047 net02) dcsfq_suny1
+I287 (net22 net17 net02) dcsfq_suny1
+I286 (net24 net18 net02) dcsfq_suny1
+I285 (net25 net19 net02) dcsfq_suny1
+I284 (net26 net20 net02) dcsfq_suny1
+I283 (net27 net21 net02) dcsfq_suny1
+I288 (0 net17 net0163 VCC) jtl_125uA_1
+I192 (0 net18 net0129 VCC) jtl_125uA_1
+I191 (0 net0128 A1 VCC) jtl_125uA_1
+I188 (0 net20 net0126 VCC) jtl_125uA_1
+I186 (0 net21 net0124 VCC) jtl_125uA_1
+I187 (0 net0124 A0 VCC) jtl_125uA_1
+I189 (0 net0126 B0 VCC) jtl_125uA_1
+I190 (0 net19 net0128 VCC) jtl_125uA_1
+I193 (0 net0129 B1 VCC) jtl_125uA_1
+I289 (0 net0163 net0160 VCC) jtl_125to180uA_1
+I351 (net0131 CLK9 net043 VCC) dff_88uA
+I350 (CIN CLK100 net095 VCC) dff_88uA
+I352 (net0130 CLK90 net0107 VCC) dff_88uA
+I353 (net0185 CLK91 net0104 VCC) dff_88uA
+I364 (0 net0112 net0131 VCC) jtl_88uA_1
+I365 (0 net0111 net0130 VCC) jtl_88uA_1
+I366 (0 net0110 net0185 VCC) jtl_88uA_1
+I367 (0 net0169 net060 VCC) jtl_88uA_1
+I202 (0 net0120 CIN VCC) jtl_88uA_1
+I201 (0 net047 net0120 VCC) jtl_88uA_1
+I206 (CLK81 0 A1 B1 net0110 VCC) and_88uA
+I205 (CLK8 0 A0 B0 net0112 VCC) and_88uA
+I204 (A1 B1 CLK80 0 net0111 VCC) xor2_88uA
+I203 (A0 B0 CLK10 0 net093 VCC) xor2_88uA
+V2 (net02 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+V0 (VCC 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+I61 (0 net22) isource type=pulse val0=0 val1=500.0u period=100p delay=50p \
+        rise=20p fall=20p width=10p
+I60 (0 net25) isource type=pulse val0=0 val1=IA1 period=1.2n delay=140p \
+        rise=20p fall=20p width=10p
+I59 (0 net24) isource type=pulse val0=0 val1=IB1 period=1n delay=140p \
+        rise=20p fall=20p width=10p
+I58 (0 net26) isource type=pulse val0=0 val1=IB0 period=1n delay=140p \
+        rise=20p fall=20p width=10p
+I57 (0 net27) isource type=pulse val0=0 val1=IA0 period=1n delay=140p \
+        rise=20p fall=20p width=10p
+I66 (0 net048) isource type=pulse val0=0 val1=ICIN period=1n delay=140p \
+        rise=20p fall=20p width=10p
+I207 (net095 net093 CLK7 0 net0109 VCC) xor2_66uA
+I208 (CLK7 0 net095 net093 net0108 VCC) and_66uA
+I218 (CLK6 0 net044 net060 net089 VCC) and_66uA
+I217 (CLK6 0 net044 net043 net090 VCC) and_66uA
+I357 (net0191 CLK5 net0100 VCC) dff_66uA
+I356 (net083 CLK7 net0159 VCC) dff_66uA
+I359 (net0198 CLK1 S0 VCC) dff_66uA
+I354 (net0175 CLK5 net0177 VCC) dff_66uA
+I355 (net044 CLK6 net091 VCC) dff_66uA
+I360 (net0186 CLK1 S1 VCC) dff_66uA
+I358 (net0177 CLK4 net0103 VCC) dff_66uA
+I226 (net0202 net0195 CLK1 0 Cout VCC) or1_66uA
+I216 (net060 net043 CLK5 0 net092 VCC) or1_66uA
+I224 (net0182 net0121 CLK4 0 net0101 VCC) or1_66uA
+I308 (0 net041 CLK8 VCC) jtl_66to88uA_1
+I311 (0 net040 CLK9 VCC) jtl_66to88uA_1
+I315 (0 net039 CLK100 VCC) jtl_66to88uA_1
+I310 (0 net041 CLK81 VCC) jtl_66to88uA_1
+I314 (0 net039 CLK10 VCC) jtl_66to88uA_1
+I309 (0 net041 CLK80 VCC) jtl_66to88uA_1
+I313 (0 net040 CLK91 VCC) jtl_66to88uA_1
+I312 (0 net040 CLK90 VCC) jtl_66to88uA_1
+I272 (0 net0108 net0169 VCC) jtl_66to88uA_1
+I306 (0 net0161 net040 VCC) jtl_88to125uA_1
+I305 (0 net0148 net039 VCC) jtl_88to125uA_1
+I307 (0 net0162 net041 VCC) jtl_88to125uA_1
+I304 (0 net0153 CLK7 VCC) jtl_88to125uA_1
+I303 (0 net0155 CLK6 VCC) jtl_88to125uA_1
+I220 (0 net0107 net044 VCC) jtl_88to125uA_1
+I302 (0 net0170 CLK5 VCC) jtl_88to125uA_1
+I301 (0 net0147 CLK4 VCC) jtl_88to125uA_1
+I300 (0 net0154 CLK1 VCC) jtl_88to125uA_1
+I221 (0 net0104 net083 VCC) jtl_88to66uA_1
+I385 (0 net0100 net0195 VCC) jtl_66uA_1
+I384 (0 net0101 net0202 VCC) jtl_66uA_1
+I372 (0 net0159 net0191 VCC) jtl_66uA_1
+I361 (0 net092 net0118 VCC) jtl_66uA_1
+I363 (0 net0102 net0186 VCC) jtl_66uA_1
+I279 (0 net0109 net0175 VCC) jtl_66uA_1
+I234 (0 net0136 net0144 VCC) jtl_66uA_1
+I230 (0 net0135 net0146 VCC) jtl_66uA_1
+I232 (0 net0137 net0145 VCC) jtl_66uA_1
+I231 (0 S1 net0137 VCC) jtl_66uA_1
+I229 (0 S0 net0135 VCC) jtl_66uA_1
+I290 (0 net0160 net0171 VCC) jtl_250to353uA_1
+I291 (0 net0171 net024 VCC) jtl_353to500uA_1
+I296 (0 net024 net0155 VCC) jtl_46to66uA_1
+I295 (0 net024 net0153 VCC) jtl_46to66uA_1
+I293 (0 net024 net0161 VCC) jtl_46to66uA_1
+I294 (0 net024 net0148 VCC) jtl_46to66uA_1
+I292 (0 net024 net0162 VCC) jtl_46to66uA_1
+I299 (0 net024 net0154 VCC) jtl_46to66uA_1
+I298 (0 net024 net0147 VCC) jtl_46to66uA_1
+I297 (0 net024 net0170 VCC) jtl_46to66uA_1
+I369 (net0118 net0123 CLK4 0 net0102 VCC) xor2_66uA_schematic
+I383 (0 net0132 net0198 VCC) jtl_66uA_1_schematic
+I382 (0 net0103 net0132 VCC) jtl_66uA_1_schematic
+I380 (0 net0119 net0182 VCC) jtl_66uA_1_schematic
+I381 (0 net0117 net0121 VCC) jtl_66uA_1_schematic
+I379 (0 net0122 net0123 VCC) jtl_66uA_1_schematic
+I376 (0 net091 net0122 VCC) jtl_66uA_1_schematic
+I378 (0 net089 net0117 VCC) jtl_66uA_1_schematic
+I377 (0 net090 net0119 VCC) jtl_66uA_1_schematic
+I256 (0 Cout net0136 VCC) delay3_level2_3
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=800p start=0 step=0.1p maxstep=0.5p minstep=0.05p \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

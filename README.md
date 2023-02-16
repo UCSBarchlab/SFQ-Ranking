@@ -23,15 +23,15 @@ In most cases, the original DC to SFQ converter used to acquire the results show
 
 There are no restrictions on these designs; however, it is requested that design reuse be properly attributed to the corresponding designer/author.
 
-###References:
+### References:
 
 [1] Volk, J., Tzimpragos, G., Wynn, A., Golden, E. and Sherwood, T., 2022. Low-Cost Superconducting Fan-Out with Repurposed Josephson Junctions. arXiv preprint arXiv:2206.07817.
 
-###Others:
+### Others:
 
 Link to the SFQ Ranking Github: https://github.com/UCSBarchlab/SFQ-Ranking
 
-###Contact:
+### Contact:
 
 For general questions feel free to reach out to Archlab @ UCSB.
 

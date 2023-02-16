@@ -1,0 +1,113 @@
+// Generated for: spectre
+// Generated on: Feb 16 08:04:05 2023
+// Design library name: Ranking_Rebuttal
+// Design cell name: fo3_wspl_fig8
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=2.6m
+include "<path/to/model/files>"
+
+// Library name: MITLL_SFQ
+// Cell name: jjsh
+// View name: schematic
+subckt jjsh B T
+parameters jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=700n
+    R0 (T B) res_r5 l=jjsh_rl w=jjsh_rw rsh=jjsh_rsh
+    J0 (T B) model_jj ic_v=0 ic_phase=0 mfactor=1 d=jjsh_d
+ends jjsh
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dcsfq_suny1
+// View name: schematic
+subckt dcsfq_suny1 IN OUT VCC
+    I3 (0 net12) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (0 net9) jjsh jjsh_rl=950n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I1 (net10 net14) jjsh jjsh_rl=900n jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.5u
+    I0 (net13 net7) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.4u
+    R0 (VCC net11) res_r5 l=1.75u w=500n rsh=2.0
+    L8 (net12 OUT) inductor l=2.11p
+    L7 (net11 net12) inductor l=1.74p
+    L6 (net13 net9) inductor l=690.00f
+    L5 (net10 net9) inductor l=210.00f
+    L4 (net7 0) inductor l=3.59p
+    L3 (net8 net7) inductor l=1.27p
+    L2 (net10 net11) inductor l=1.14p
+    L1 (net8 net14) inductor l=1.29p
+    L0 (IN net8) inductor l=3.35p
+ends dcsfq_suny1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_250uA
+// View name: schematic
+subckt jtl_250uA IN OUT VCC
+    L3 (net9 OUT) inductor l=1p
+    L2 (net8 net9) inductor l=1p
+    L1 (net7 net8) inductor l=1p
+    L0 (IN net7) inductor l=1p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    R0 (VCC net8) res_r5 l=1.85u w=500n rsh=2.0
+ends jtl_250uA
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB
+// Cell name: split4
+// View name: schematic
+subckt split4 GND IN OUT1 OUT2 VCC
+    L5 (net14 OUT2) inductor l=1p
+    L4 (net15 OUT1) inductor l=1p
+    L3 (net10 net15) inductor l=750.00f
+    L2 (net14 net10) inductor l=750.00f
+    L1 (net8 net10) inductor l=1p
+    L0 (IN net8) inductor l=800.0f
+    I3 (net14 GND) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (GND net15) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I1 (GND net8) jjsh jjsh_rl=750n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    R1 (VCC net8) res_r5 l=1.35u w=500n rsh=2.0
+ends split4
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: fo3_wspl_fig8
+// View name: schematic
+I0 (0 net6) isource type=pulse val0=0 val1=500.0u period=250p delay=50p \
+        rise=20p fall=20p width=10p
+V1 (net037 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+V0 (net5 0) vsource type=pwl wave=[ 0 0 1p 2.6m ]
+I36 (net6 net7 net5) dcsfq_suny1
+I37 (net7 IN net037) jtl_250uA
+I42 (net025 OUT1 net037) jtl_250uA
+I45 (OUT net023 net037) jtl_250uA
+I38 (IN net027 net037) jtl_250uA
+I39 (net027 net028 net037) jtl_250uA
+I43 (OUT1 net022 net037) jtl_250uA
+I47 (OUT2 net021 net037) jtl_250uA
+I40 (net028 net029 net037) jtl_250uA
+I41 (net038 net025 net037) jtl_250uA
+I44 (net022 net019 net037) jtl_250uA
+I48 (net021 net018 net037) jtl_250uA
+I46 (net023 OUT2 net037) jtl_250uA
+I49 (net016 net024 net037) jtl_250uA
+I50 (net024 OUT3 net037) jtl_250uA
+I51 (OUT3 net020 net037) jtl_250uA
+I52 (net020 net017 net037) jtl_250uA
+I56 (0 net015 net038 OUT net037) split4
+I55 (0 net029 net015 net016 net037) split4
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=800p start=0 step=0.1p maxstep=0.5p minstep=0.05p \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

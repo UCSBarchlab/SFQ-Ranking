@@ -1,0 +1,128 @@
+// Generated for: spectre
+// Generated on: Feb  7 13:41:49 2023
+// Design library name: Ranking_Rebuttal3
+// Design cell name: ampjtlchain_r6to8_fig10
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=2.6m
+include "<path/to/model/files>"
+
+// Library name: MITLL_SFQ
+// Cell name: jjsh
+// View name: schematic
+subckt jjsh B T
+parameters jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=700n
+    R0 (T B) res_r5 l=jjsh_rl w=jjsh_rw rsh=jjsh_rsh
+    J0 (T B) model_jj ic_v=0 ic_phase=0 mfactor=1 d=jjsh_d
+ends jjsh
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: dcsfq_suny1
+// View name: schematic
+subckt dcsfq_suny1 IN OUT VCC
+    I3 (0 net12) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (0 net9) jjsh jjsh_rl=950n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I1 (net10 net14) jjsh jjsh_rl=900n jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.5u
+    I0 (net13 net7) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.4u
+    R0 (VCC net11) res_r5 l=1.75u w=500n rsh=2.0
+    L8 (net12 OUT) inductor l=2.11p
+    L7 (net11 net12) inductor l=1.74p
+    L6 (net13 net9) inductor l=690.00f
+    L5 (net10 net9) inductor l=210.00f
+    L4 (net7 0) inductor l=3.59p
+    L3 (net8 net7) inductor l=1.27p
+    L2 (net10 net11) inductor l=1.14p
+    L1 (net8 net14) inductor l=1.29p
+    L0 (IN net8) inductor l=3.35p
+ends dcsfq_suny1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: jtl_250to353uA
+// View name: schematic
+subckt jtl_250to353uA_schematic IN OUT VCC
+    L3 (net9 OUT) inductor l=1.47p
+    L2 (net8 net9) inductor l=1.47p
+    L1 (net7 net8) inductor l=2.07p
+    L0 (IN net7) inductor l=2.07p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    R0 (VCC net8) res_r5 l=1.55u w=500n rsh=2.0
+ends jtl_250to353uA_schematic
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: jtl_353to500uA
+// View name: schematic
+subckt jtl_353to500uA_schematic IN OUT VCC
+    L3 (net9 OUT) inductor l=1.05p
+    L2 (net8 net9) inductor l=1.05p
+    L1 (net7 net8) inductor l=1.47p
+    L0 (IN net7) inductor l=1.47p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=1.15u jjsh_rsh=2.0 jjsh_d=2.55u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    R0 (VCC net8) res_r5 l=1.1u w=500n rsh=2.0
+ends jtl_353to500uA_schematic
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: jtl_500uA
+// View name: schematic
+subckt jtl_500uA_schematic IN OUT VCC
+    L3 (net9 OUT) inductor l=500.0f
+    L2 (net8 net9) inductor l=500.0f
+    L1 (net7 net8) inductor l=500.0f
+    L0 (IN net7) inductor l=500.0f
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=1.15u jjsh_rsh=2.0 jjsh_d=2.55u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=1.15u jjsh_rsh=2.0 jjsh_d=2.55u
+    R0 (VCC net8) res_r5 l=950n w=500n rsh=2.0
+ends jtl_500uA_schematic
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: jtl_250uA
+// View name: schematic
+subckt jtl_250uA_schematic IN OUT VCC
+    L3 (net9 OUT) inductor l=2.07p
+    L2 (net8 net9) inductor l=2.07p
+    L1 (net7 net8) inductor l=2.07p
+    L0 (IN net7) inductor l=2.07p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    R0 (VCC net8) res_r5 l=1.85u w=500n rsh=2.0
+ends jtl_250uA_schematic
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal3
+// Cell name: ampjtlchain_r6to8_fig10
+// View name: schematic
+I0 (0 net6) isource type=pulse val0=0 val1=500.0u period=300p delay=100p \
+        rise=20p fall=20p width=10p
+V1 (net5 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+V0 (net032 0) vsource type=pwl wave=[ 0 0 1p 2m ]
+I77 (net6 net7 net032) dcsfq_suny1
+I75 (net022 net019 net5) jtl_250to353uA_schematic
+I76 (net019 OUT net5) jtl_353to500uA_schematic
+I74 (net014 net09 net5) jtl_500uA_schematic
+I73 (OUT net014 net5) jtl_500uA_schematic
+I48 (net021 net022 net5) jtl_250uA_schematic
+I47 (net020 net021 net5) jtl_250uA_schematic
+I64 (IN net020 net5) jtl_250uA_schematic
+I45 (net7 IN net5) jtl_250uA_schematic
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=800p start=1p step=0.1p maxstep=0.5p minstep=0.05p \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

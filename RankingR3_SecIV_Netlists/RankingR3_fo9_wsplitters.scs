@@ -1,0 +1,143 @@
+// Generated for: spectre
+// Generated on: Feb 16 08:29:50 2023
+// Design library name: Ranking_Rebuttal
+// Design cell name: fo9_wspl
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=2.6m
+include "<path/to/model/files>"
+
+// Library name: MITLL_SFQ
+// Cell name: jjsh
+// View name: schematic
+subckt jjsh B T
+parameters jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=700n
+    R0 (T B) res_r5 l=jjsh_rl w=jjsh_rw rsh=jjsh_rsh
+    J0 (T B) model_jj ic_v=0 ic_phase=0 mfactor=1 d=jjsh_d
+ends jjsh
+// End of subcircuit definition.
+
+// Library name: MITLL_UCSB
+// Cell name: split4
+// View name: schematic
+subckt split4 GND IN OUT1 OUT2 VCC
+    L5 (net14 OUT2) inductor l=1p
+    L4 (net15 OUT1) inductor l=1p
+    L3 (net10 net15) inductor l=750.00f
+    L2 (net14 net10) inductor l=750.00f
+    L1 (net8 net10) inductor l=1p
+    L0 (IN net8) inductor l=800.0f
+    I3 (net14 GND) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (GND net15) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I1 (GND net8) jjsh jjsh_rl=750n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    R1 (VCC net8) res_r5 l=1.35u w=500n rsh=2.0
+ends split4
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_250uA
+// View name: schematic
+subckt jtl_250uA IN OUT VCC
+    L3 (net9 OUT) inductor l=1p
+    L2 (net8 net9) inductor l=1p
+    L1 (net7 net8) inductor l=1p
+    L0 (IN net7) inductor l=1p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    R0 (VCC net8) res_r5 l=1.85u w=500n rsh=2.0
+ends jtl_250uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dcsfq_suny1
+// View name: schematic
+subckt dcsfq_suny1 IN OUT VCC
+    I3 (0 net12) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (0 net9) jjsh jjsh_rl=950n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I1 (net10 net14) jjsh jjsh_rl=900n jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.5u
+    I0 (net13 net7) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.4u
+    R0 (VCC net11) res_r5 l=1.75u w=500n rsh=2.0
+    L8 (net12 OUT) inductor l=2.11p
+    L7 (net11 net12) inductor l=1.74p
+    L6 (net13 net9) inductor l=690.00f
+    L5 (net10 net9) inductor l=210.00f
+    L4 (net7 0) inductor l=3.59p
+    L3 (net8 net7) inductor l=1.27p
+    L2 (net10 net11) inductor l=1.14p
+    L1 (net8 net14) inductor l=1.29p
+    L0 (IN net8) inductor l=3.35p
+ends dcsfq_suny1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: fo8_wspl_fig10
+// View name: schematic
+I0 (0 net6) isource type=pulse val0=0 val1=500.0u period=200p delay=30p \
+        rise=20p fall=20p width=10p
+V1 (net4 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+V0 (net5 0) vsource type=pwl wave=[ 0 0 1p 2.6m ]
+I160 (0 net037 net088 net093 net4) split4
+I120 (0 net028 net037 net036 net4) split4
+I119 (0 net022 net026 net025 net4) split4
+I118 (0 net023 net028 net027 net4) split4
+I123 (0 net025 net031 net030 net4) split4
+I122 (0 net026 net033 net032 net4) split4
+I121 (0 net027 net035 net034 net4) split4
+I117 (0 net053 net023 net022 net4) split4
+I159 (net088 net084 net4) jtl_250uA
+I158 (net084 OUT1 net4) jtl_250uA
+I157 (net085 net0103 net4) jtl_250uA
+I156 (OUT1 net085 net4) jtl_250uA
+I155 (net068 net040 net4) jtl_250uA
+I154 (net031 net068 net4) jtl_250uA
+I153 (net030 net074 net4) jtl_250uA
+I152 (net074 net041 net4) jtl_250uA
+I151 (net041 net073 net4) jtl_250uA
+I148 (net040 net072 net4) jtl_250uA
+I147 (net064 net044 net4) jtl_250uA
+I144 (net073 net043 net4) jtl_250uA
+I143 (net071 net042 net4) jtl_250uA
+I140 (net066 net039 net4) jtl_250uA
+I139 (net048 net063 net4) jtl_250uA
+I136 (net034 net070 net4) jtl_250uA
+I135 (net035 net060 net4) jtl_250uA
+I124 (net0107 net069 net4) jtl_250uA
+I128 (net036 net058 net4) jtl_250uA
+I132 (net049 net065 net4) jtl_250uA
+I134 (net060 net049 net4) jtl_250uA
+I127 (net069 net075 net4) jtl_250uA
+I131 (net077 net059 net4) jtl_250uA
+I133 (net065 net050 net4) jtl_250uA
+I138 (net063 net047 net4) jtl_250uA
+I142 (net067 net046 net4) jtl_250uA
+I141 (net033 net067 net4) jtl_250uA
+I146 (net039 net071 net4) jtl_250uA
+I150 (net046 net064 net4) jtl_250uA
+I81 (net052 net054 net4) jtl_250uA
+I79 (net7 IN net4) jtl_250uA
+I149 (net032 net066 net4) jtl_250uA
+I145 (net072 net045 net4) jtl_250uA
+I80 (IN net052 net4) jtl_250uA
+I82 (net054 net053 net4) jtl_250uA
+I137 (net070 net048 net4) jtl_250uA
+I130 (net059 net051 net4) jtl_250uA
+I126 (net057 net0107 net4) jtl_250uA
+I125 (net093 net057 net4) jtl_250uA
+I129 (net058 net077 net4) jtl_250uA
+I78 (net6 net7 net5) dcsfq_suny1
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=1600p start=0 step=0.1p maxstep=0.5p minstep=0.05p \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub

@@ -1,0 +1,172 @@
+// Generated for: spectre
+// Generated on: Feb 14 13:12:59 2023
+// Design library name: Ranking_Rebuttal
+// Design cell name: fo8_wranking_r1to8
+// Design view name: schematic
+simulator lang=spectre
+global 0
+parameters VCC=2.6m
+include "<path/to/model/files>"
+
+// Library name: MITLL_SFQ
+// Cell name: jjsh
+// View name: schematic
+subckt jjsh B T
+parameters jjsh_rl=700n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=700n
+    R0 (T B) res_r5 l=jjsh_rl w=jjsh_rw rsh=jjsh_rsh
+    J0 (T B) model_jj ic_v=0 ic_phase=0 mfactor=1 d=jjsh_d
+ends jjsh
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_46uA
+// View name: schematic
+subckt jtl_46uA IN OUT VCC
+    L3 (net9 OUT) inductor l=11p
+    L2 (net8 net9) inductor l=11p
+    L1 (net7 net8) inductor l=11p
+    L0 (IN net7) inductor l=11p
+    I1 (0 net9) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=850.0n
+    I0 (0 net7) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=850.0n
+    R0 (VCC net8) res_r5 l=9.5u w=500n rsh=2.0
+ends jtl_46uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_88to125uA
+// View name: schematic
+subckt jtl_88to125uA IN OUT VCC
+    L3 (net9 OUT) inductor l=1.4p
+    L2 (net8 net9) inductor l=1.4p
+    L1 (net7 net8) inductor l=2p
+    L0 (IN net7) inductor l=1.9p
+    I1 (0 net9) jjsh jjsh_rl=1.2u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.3u
+    I0 (0 net7) jjsh jjsh_rl=1.7u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.1u
+    R0 (VCC net8) res_r5 l=4.4u w=500n rsh=2.0
+ends jtl_88to125uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: dcsfq_suny1
+// View name: schematic
+subckt dcsfq_suny1 IN OUT VCC
+    I3 (0 net12) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I2 (0 net9) jjsh jjsh_rl=950n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.5u
+    I1 (net10 net14) jjsh jjsh_rl=900n jjsh_rw=500n jjsh_rsh=2.0 \
+        jjsh_d=1.5u
+    I0 (net13 net7) jjsh jjsh_rl=1u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.4u
+    R0 (VCC net11) res_r5 l=1.75u w=500n rsh=2.0
+    L8 (net12 OUT) inductor l=2.11p
+    L7 (net11 net12) inductor l=1.74p
+    L6 (net13 net9) inductor l=690.00f
+    L5 (net10 net9) inductor l=210.00f
+    L4 (net7 0) inductor l=3.59p
+    L3 (net8 net7) inductor l=1.27p
+    L2 (net10 net11) inductor l=1.14p
+    L1 (net8 net14) inductor l=1.29p
+    L0 (IN net8) inductor l=3.35p
+ends dcsfq_suny1
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_353to500uA
+// View name: schematic
+subckt jtl_353to500uA IN OUT VCC
+    L3 (net9 OUT) inductor l=700.0f
+    L2 (net8 net9) inductor l=700.0f
+    L1 (net7 net8) inductor l=1p
+    L0 (IN net7) inductor l=1p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=1.15u jjsh_rsh=2.0 jjsh_d=2.55u
+    I0 (0 net7) jjsh jjsh_rl=700n jjsh_rw=800n jjsh_rsh=2.0 jjsh_d=2.15u
+    R0 (VCC net8) res_r5 l=1.1u w=500n rsh=2.0
+ends jtl_353to500uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_46to66uA
+// View name: schematic
+subckt jtl_46to66uA IN OUT VCC
+    L3 (net9 OUT) inductor l=2.9p
+    L2 (net8 net9) inductor l=2.83p
+    L1 (net7 net8) inductor l=4p
+    L0 (IN net7) inductor l=5.5p
+    I1 (0 net9) jjsh jjsh_rl=2.4u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=950.0n
+    I0 (0 net7) jjsh jjsh_rl=3u jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=850.0n
+    R0 (VCC net8) res_r5 l=8.3u w=500n rsh=2.0
+ends jtl_46to66uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: jtl_180to250uA
+// View name: schematic
+subckt jtl_180to250uA IN OUT VCC
+    L3 (net9 OUT) inductor l=700.0f
+    L2 (net8 net9) inductor l=1p
+    L1 (net7 net8) inductor l=1.4p
+    L0 (IN net7) inductor l=1.4p
+    I1 (0 net9) jjsh jjsh_rl=700n jjsh_rw=550n jjsh_rsh=2.0 jjsh_d=1.8u
+    I0 (0 net7) jjsh jjsh_rl=850n jjsh_rw=500n jjsh_rsh=2.0 jjsh_d=1.55u
+    R0 (VCC net8) res_r5 l=2.15u w=500n rsh=2.0
+ends jtl_180to250uA
+// End of subcircuit definition.
+
+// Library name: Ranking_Rebuttal
+// Cell name: fo8_wranking_r1to8
+// View name: schematic
+I0 (0 net6) isource type=pulse val0=0 val1=500.0u period=200p delay=30p \
+        rise=20p fall=20p width=10p
+V1 (net064 0) vsource type=pwl wave=[ 0 0 1p VCC ]
+V0 (net5 0) vsource type=pwl wave=[ 0 0 1p 2.6m ]
+I116 (net059 net017 net064) jtl_46uA
+I115 (OUT1 net059 net064) jtl_46uA
+I114 (net058 net016 net064) jtl_46uA
+I113 (OUT2 net058 net064) jtl_46uA
+I112 (net061 net015 net064) jtl_46uA
+I111 (OUT3 net061 net064) jtl_46uA
+I110 (net060 net033 net064) jtl_46uA
+I109 (net034 net060 net064) jtl_46uA
+I101 (net032 net046 net064) jtl_46uA
+I98 (net044 net025 net064) jtl_46uA
+I100 (net045 net032 net064) jtl_46uA
+I99 (OUT net045 net064) jtl_46uA
+I95 (OUT net051 net064) jtl_46uA
+I93 (OUT net050 net064) jtl_46uA
+I92 (net049 net034 net064) jtl_46uA
+I97 (OUT net044 net064) jtl_46uA
+I96 (net051 net026 net064) jtl_46uA
+I94 (net050 net027 net064) jtl_46uA
+I91 (OUT net049 net064) jtl_46uA
+I89 (OUT net048 net064) jtl_46uA
+I88 (net056 OUT2 net064) jtl_46uA
+I87 (OUT net056 net064) jtl_46uA
+I85 (OUT net055 net064) jtl_46uA
+I117 (net7 IN net064) jtl_46uA
+I86 (net055 OUT1 net064) jtl_46uA
+I118 (IN A1 net064) jtl_46uA
+I90 (net048 OUT3 net064) jtl_46uA
+I107 (net027 net063 net064) jtl_46uA
+I106 (net062 net029 net064) jtl_46uA
+I105 (net026 net062 net064) jtl_46uA
+I104 (net047 net030 net064) jtl_46uA
+I103 (net025 net047 net064) jtl_46uA
+I102 (net046 net031 net064) jtl_46uA
+I108 (net063 net028 net064) jtl_46uA
+I120 (A2 A3 net064) jtl_88to125uA
+I78 (net6 net7 net5) dcsfq_suny1
+I84 (A4 OUT net064) jtl_353to500uA
+I119 (A1 A2 net064) jtl_46to66uA
+I121 (A3 A4 net064) jtl_180to250uA
+simulatorOptions options psfversion="1.1.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+tran tran stop=800p start=0 step=0.1p maxstep=0.5p minstep=0.05p \
+    write="spectre.ic" writefinal="spectre.fc" annotate=status maxiters=5 
+finalTimeOP info what=oppoint where=rawfile
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
